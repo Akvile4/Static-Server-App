@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Akvile4/static-server-app/issues"
   },
-  "homepage": "https://github.com/Akvile4/static-server-app#readme"
+  "homepage": "https://github.com/Akvile4/static-server-app#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
 }
