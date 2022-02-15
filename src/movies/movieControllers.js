@@ -21,10 +21,32 @@ exports.list = async (req, res) => {
         res.status(200).send({movies});
     } catch (error) {
         console.log(error)
-        res.status(500).send({error: error.message})
+        res.status(500).send({error: error.message});
+    }
+};
+
+exports.updateMovie = async (req, res) => {
+    try {
+        const movies = await Movie.updateOne({title: req.body.title}, 
+            { $set: {title: req.body.newTitle }});
+        res.status(200).send({movies});
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({error: error.message});
+    }
+}
+
+exports.deleteMovie = async (req, res) => {
+    try {
+        const movies = await Movie.deleteOne(req.body)
+        res.status(200).send({movies})
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({error: error.message});
     }
 };
 
 exports.testRoute = async (req, res) => {
-    res.status(200).send({"test": "test route works"})
-}
+    res.status(200).send({"test": "test route works"});
+};
+
